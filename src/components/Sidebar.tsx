@@ -1,6 +1,17 @@
 import { useApp } from '../context/AppContext'
 
-const navItems = [
+interface NavItem {
+  id: string
+  label: string
+}
+
+interface NavSection {
+  section: string
+  icon: React.ReactNode
+  items: NavItem[]
+}
+
+const navItems: NavSection[] = [
   {
     section: 'Gerenciar Clientes',
     icon: (
@@ -32,11 +43,10 @@ export default function Sidebar() {
 
   return (
     <aside className="w-64 min-h-screen bg-base-200 flex flex-col border-r border-base-300">
-      {/* Brand */}
-      <div className="px-6 py-6 border-b border-base-300">
+      {/* Brand */}<div className="px-6 py-6 border-b border-base-300">
         <div className="flex items-center gap-3">
           <div>
-            <h1 className="brand-font text-lg font-800 leading-tight tracking-tight text-base-content">
+            <h1 className="text-lg font-bold tracking-widest uppercase text-primary">
               Atlantis
             </h1>
             <p className="text-xs text-base-content/50 font-medium">Sistema de Gestão</p>
@@ -44,9 +54,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-5">
-        {/* Dashboard */}
         <button
           onClick={() => setActivePage('dashboard')}
           className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer
@@ -88,7 +96,6 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* Footer */}
       <div className="px-4 py-4 border-t border-base-300">
         <div className="flex items-center gap-3 px-2">
           <div className="avatar placeholder">
