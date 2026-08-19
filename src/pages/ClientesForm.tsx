@@ -1,4 +1,5 @@
-import { useState, useEffect, ReactNode, ChangeEvent } from 'react'
+import { useState, useEffect } from 'react'
+import type { ChangeEvent, ReactNode } from 'react';
 import { useApp } from '../context/AppContext'
 import type { Cliente, Documento, Endereco, TipoDocumento, TipoCliente } from '../context/AppContext'
 
